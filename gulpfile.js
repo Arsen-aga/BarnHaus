@@ -113,6 +113,7 @@ function building() {
     [
       "app/images/**/*.*",
       "!app/images/accomodate/**/*.*",
+      "app/files/*.*",
       "app/fonts/**/*.*",
       "!app/fonts/accomodate/**/*.*",
       "app/**/*.html",

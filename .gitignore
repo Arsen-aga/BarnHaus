@@ -6,8 +6,9 @@
 npm-debug.*
 
 dist/
-app/fonts/
+app/fonts/accomodate/
 app/files/
-app/images/
+app/images/*
+!app/images/icons/
 node_modules/
 package-lock.json

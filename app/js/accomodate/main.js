@@ -9,7 +9,7 @@
 // });
 
 AOS.init({
-  delay: 500,
+  delay: 300,
 });
 
 document.querySelectorAll(".menu a, .to-top").forEach((link) => {
