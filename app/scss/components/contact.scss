@@ -1,0 +1,48 @@
+.contact{
+  margin-top: 100px;
+  padding: 100px 0;
+  background-image: linear-gradient(180deg, #201c1cc3 0%, #201c1cc3 41%, #201c1cc3 100%),url('../images/gallery/day/9.webp');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  &__title{
+    color: $primary;
+  }
+  &__inner{
+    background-color: #0a0a0a78;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(320px, 1fr));
+    align-items: center;
+    gap: 40px;
+  }
+
+  &__map{
+    height: 250px;
+  }
+
+  &__list{
+    display: grid;
+    gap: 10px;
+  }
+
+  &__link{
+    color: white;
+    transition: all .3s;
+    svg{
+      width: 15px;
+      height: 15px;
+    }
+    path{
+      transition: all .3s;
+    }
+
+    &:hover{
+      color: $primary;
+
+      path{
+        fill: $primary;
+      }
+    }
+  }
+}

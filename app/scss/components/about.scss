@@ -1,0 +1,50 @@
+.about {
+  padding-top: 100px;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(320px, 1fr));
+    align-items: center;
+    gap: 30px;
+  }
+
+  &__right {
+    display: grid;
+    gap: 10px;
+  }
+
+  &__right-text {
+    font-size: 20px;
+  }
+
+  &__left-link {
+    position: relative;
+
+    path,
+    circle {
+      transition: all .3s;
+    }
+
+    &:hover {
+      .about__left-img {
+        filter: brightness(.5);
+      }
+
+      path {
+        fill: $primary;
+      }
+
+      circle:first-child {
+        display: none;
+      }
+
+      circle {
+        stroke: $primary;
+      }
+    }
+  }
+
+  &__left-img{
+    transition: all .3s;
+  }
+}

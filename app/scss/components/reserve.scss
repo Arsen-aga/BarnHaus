@@ -1,0 +1,88 @@
+.reserve {
+  padding-top: 100px;
+
+  &__form {
+    background-image: linear-gradient(180deg, rgba(2, 0, 36, 0.796) 0%, rgba(56, 56, 56, 0.7069281524926686) 41%, rgba(230, 171, 86, 0.2641129032258065) 100%), url('../images/gallery/day/20.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    max-width: 800px;
+    padding: 40px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__form-title {
+    color: white;
+    font-size: 24px;
+    @extend %jost-400;
+    margin-bottom: 20px;
+  }
+
+  &__form-top {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  &__form-inp,
+  &__form-textarea {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    color: $accent;
+    margin-bottom: 20px;
+    font-size: 14px;
+    border: none;
+    @extend %jost-500;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      background-color: #f1f1f1;
+    }
+
+    &::placeholder {
+      @extend %jost-700;
+    }
+  }
+
+  &__form-times {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  &__form-time {
+    margin-bottom: 0;
+  }
+
+  &__form-textarea {
+    resize: none;
+    height: 120px;
+    margin-bottom: 20px;
+  }
+
+  &__form-btn {
+    background-color: $primary;
+    display: inline-block;
+    text-transform: uppercase;
+    max-width: 300px;
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    @extend %jost-700;
+    letter-spacing: 1px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all .3s;
+
+    &:hover {
+      background-color: #f8a634;
+    }
+  }
+}
