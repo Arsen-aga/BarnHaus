@@ -12,30 +12,32 @@ AOS.init({
   delay: 300,
 });
 
-document.querySelectorAll(".menu a, .popup-menu a, .to-top").forEach((link) => {
-  link.addEventListener("click", function (e) {
-    e.preventDefault();
+document
+  .querySelectorAll(".menu a, .popup-menu a, .footer__list a, .to-top")
+  .forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
 
-    let href = this.getAttribute("href").substring(1);
-    const popupMenu = document.querySelector(".popup-menu");
-    const body = document.querySelector("body");
+      let href = this.getAttribute("href").substring(1);
+      const popupMenu = document.querySelector(".popup-menu");
+      const body = document.querySelector("body");
 
-    popupMenu.classList.remove("active");
-    body.classList.remove("no-scroll");
+      popupMenu.classList.remove("active");
+      body.classList.remove("no-scroll");
 
-    const scrollTarget = document.getElementById(href);
+      const scrollTarget = document.getElementById(href);
 
-    const topOffset = 0;
-    // const topOffset = 0; // если не нужен отступ сверху
-    const elementPosition = scrollTarget.getBoundingClientRect().top;
-    const offsetPosition = elementPosition - topOffset;
+      const topOffset = 0;
+      // const topOffset = 0; // если не нужен отступ сверху
+      const elementPosition = scrollTarget.getBoundingClientRect().top;
+      const offsetPosition = elementPosition - topOffset;
 
-    window.scrollBy({
-      top: offsetPosition,
-      behavior: "smooth",
+      window.scrollBy({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
     });
   });
-});
 
 if (document.querySelector(".header-bottom")) {
   // инициализируем top Navigation
