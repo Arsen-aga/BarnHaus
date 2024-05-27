@@ -1,22 +1,27 @@
-// const burger = document.querySelector(".burger");
-// const popupMenu = document.querySelector(".popup-menu");
-// const body = document.querySelector("body");
+const burger = document.querySelector(".burger");
+const popupMenu = document.querySelector(".popup-menu");
+const body = document.querySelector("body");
 
-// burger.addEventListener("click", function () {
-//   burger.classList.toggle("active");
-//   popupMenu.classList.toggle("active");
-//   body.classList.toggle("no-scroll");
-// });
+burger.addEventListener("click", function () {
+  burger.classList.toggle("active");
+  popupMenu.classList.toggle("active");
+  body.classList.toggle("no-scroll");
+});
 
 AOS.init({
   delay: 300,
 });
 
-document.querySelectorAll(".menu a, .to-top").forEach((link) => {
+document.querySelectorAll(".menu a, .popup-menu a, .to-top").forEach((link) => {
   link.addEventListener("click", function (e) {
     e.preventDefault();
 
     let href = this.getAttribute("href").substring(1);
+    const popupMenu = document.querySelector(".popup-menu");
+    const body = document.querySelector("body");
+
+    popupMenu.classList.remove("active");
+    body.classList.remove("no-scroll");
 
     const scrollTarget = document.getElementById(href);
 
@@ -32,10 +37,11 @@ document.querySelectorAll(".menu a, .to-top").forEach((link) => {
   });
 });
 
-if (document.querySelector(".header")) {
+if (document.querySelector(".header-bottom")) {
   // инициализируем top Navigation
-  const topNavigation = document.querySelector(".header");
+  const topNavigation = document.querySelector(".header-bottom");
   const toTopArrow = document.querySelector(".to-top");
+  const popupMenu = document.querySelector(".popup-menu");
   function checkСoordinatesElem(elem) {
     // запуск функции по движению скролла
     window.addEventListener("scroll", function () {
@@ -45,9 +51,11 @@ if (document.querySelector(".header")) {
       if (coordWindow > 650) {
         elem.classList.add("active");
         toTopArrow.classList.add("active");
+        popupMenu.classList.add("top");
       } else {
-        elem.classList.remove("active"); 
+        elem.classList.remove("active");
         toTopArrow.classList.remove("active");
+        popupMenu.classList.remove("top");
       }
     });
   }
@@ -68,8 +76,62 @@ if (document.querySelector(".front-block__swiper")) {
 if (document.querySelector(".gallery__swiper")) {
   const swiper = new Swiper(".gallery__swiper", {
     loop: true,
-    slidesPerView: 3,
+    slidesPerView: 1,
     spaceBetween: 20,
+    clickable: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      576: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      992: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+    },
+  });
+}
+if (document.querySelector(".reviews__swiper")) {
+  const swiper = new Swiper(".reviews__swiper", {
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    clickable: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      576: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      992: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+    },
+  });
+}
+if (document.querySelector(".services__item-swiper")) {
+  const swiper = new Swiper(".services__item-swiper", {
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 10,
     clickable: true,
     // autoplay: {
     //   delay: 5000,
@@ -79,6 +141,19 @@ if (document.querySelector(".gallery__swiper")) {
       el: ".swiper-pagination",
       clickable: true,
     },
+
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+}
+if (document.querySelector(".house__swiper")) {
+  const swiper = new Swiper(".house__swiper", {
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 10,
+    clickable: true,
 
     navigation: {
       nextEl: ".swiper-button-next",
@@ -246,4 +321,21 @@ if (document.getElementById("map")) {
     const newMarker = addNewMarker();
     newMarker(37.865876, 56.018549);
   }
+}
+
+if (document.querySelector(".about__item")) {
+  const question = document.querySelectorAll(".about__item");
+
+  question.forEach((btn) =>
+    btn.addEventListener("click", function () {
+      if (this.classList.contains("active")) {
+        this.classList.remove("active");
+      } else {
+        question.forEach((btn) => {
+          btn.classList.remove("active");
+          this.classList.add("active");
+        });
+      }
+    })
+  );
 }

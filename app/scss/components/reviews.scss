@@ -1,0 +1,133 @@
+.reviews {
+    background-color: $accent;
+    padding: 100px 0;
+
+    &__title {
+        margin-bottom: 15px;
+    }
+
+    &__inner {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__subtitle {
+        font-size: 36px;
+        line-height: 1.2;
+        color: white;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+
+    &__swiper {
+        padding-bottom: 40px;
+        margin-bottom: 20px;
+    }
+
+    &__card {
+        background-color: white;
+        padding: 30px;
+    }
+
+    &__card-top {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    &__card-wrapper {
+        width: 100px;
+        height: 100px;
+        position: relative;
+    }
+
+    &__card-img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    &__card-title {
+        font-size: 22px;
+
+    }
+
+    &__text {
+        color: white;
+        font-size: 20px;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    &__link {
+        max-width: 250px;
+        padding: 15px;
+        text-align: center;
+        font-size: 16px;
+        margin: 0 auto;
+        display: block;
+    }
+
+
+    .swiper-pagination {
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+
+        .swiper-pagination-bullet {
+            margin: 0;
+            max-width: 12px;
+            width: 100%;
+            height: 12px;
+            border-radius: 0;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $primary;
+                opacity: 1;
+            }
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: $primary;
+        }
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        height: 40px;
+        width: 40px;
+        background-color: $default;
+        opacity: .5;
+        z-index: 4;
+        transition: all .3s;
+
+        &::after {
+            font-size: 18px;
+            font-weight: 700;
+            color: $primary;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+}
+
+
+@media (max-width: 991.8px) {
+    .reviews {
+        padding: 40px 0;
+
+        &__subtitle {
+            font-size: 28px;
+            line-height: 1.2;
+
+        }
+    }
+}

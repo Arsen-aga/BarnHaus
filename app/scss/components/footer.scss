@@ -1,129 +1,154 @@
 .footer {
-  background-color: $accent;
-  padding: 40px 0;
+    background-color: $accent;
+    padding: 40px 0;
 
-  &__inner {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
-  }
-
-  &__logo {
-    margin-bottom: 15px;
-    display: block;
-  }
-
-  &__item-text,
-  &__item-link {
-    color: white;
-
-    a {
-      color: white;
+    &__inner {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
     }
-  }
 
-  &__item-title {
-    @extend %jost-700;
-    font-size: 18px;
-    line-height: calc(24/16*100%);
-    text-transform: uppercase;
-    color: white;
-    margin: 10px 0 15px;
-  }
+    &__logo {
+        margin-bottom: 15px;
+        display: block;
+    }
 
-  &__list {
-    display: grid;
-    gap: 8px;
-  }
+    &__item-text,
+    &__item-link {
+        color: white;
 
-  &__link {
-    color: white;
-    font-size: 18px;
-  }
-
-  &__item:first-child {
-    .footer__item-text {
-      a {
-        transition: all .3s;
-      }
-
-      &:hover {
         a {
-          color: $primary;
+            color: white;
         }
-      }
     }
 
-    .footer__item-link{
-      transition: all .3s;
-      &:hover{
-        color: $primary;
-      }
+    &__item-title {
+        @extend %jost-700;
+        font-size: 18px;
+        line-height: calc(24/16*100%);
+        text-transform: uppercase;
+        color: white;
+        margin: 10px 0 15px;
     }
 
-  }
+    &__list {
+        display: grid;
+        gap: 8px;
+    }
 
-  &__item:nth-child(2) {
-    .footer__point {
-      padding-left: 15px;
-      position: relative;
+    &__link {
+        color: white;
+        font-size: 18px;
+    }
 
-      &::after {
-        content: '';
-        position: absolute;
-        width: 4px;
-        height: 4px;
-        border-radius: 50%;
-        background-color: white;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        transition: all .3s;
-      }
+    &__item:first-child {
+        .footer__item-text {
+            a {
+                transition: all .3s;
+            }
 
-      .footer__link {
-        display: block;
-        transition: all .3s;
-      }
+            &:hover {
+                a {
+                    color: $primary;
+                }
+            }
+        }
 
-      &:hover {
+        .footer__item-link {
+            transition: all .3s;
+
+            &:hover {
+                color: $primary;
+            }
+        }
+
+    }
+
+    &__item:nth-child(2) {
+        .footer__point {
+            padding-left: 15px;
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                background-color: white;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                transition: all .3s;
+            }
+
+            .footer__link {
+                display: block;
+                transition: all .3s;
+            }
+
+            &:hover {
+                .footer__link {
+                    color: $primary;
+                }
+
+                &::after {
+                    background-color: $primary;
+                    width: 6px;
+                    height: 6px;
+                }
+            }
+        }
+    }
+
+    &__item:last-child {
         .footer__link {
-          color: $primary;
-        }
+            display: flex;
+            align-items: start;
+            gap: 10px;
+            transition: all .3s;
 
-        &::after {
-          background-color: $primary;
-          width: 6px;
-          height: 6px;
+            svg {
+                display: block;
+                width: 18px;
+                height: 18px;
+
+                path {
+                    transition: all .3s;
+                }
+            }
+
+            &:hover {
+                color: $primary;
+
+                path {
+                    fill: $primary;
+                }
+            }
         }
-      }
     }
-  }
+}
 
-  &__item:last-child {
-    .footer__link {
-      display: flex;
-      align-items: start;
-      gap: 10px;
-      transition: all .3s;
-
-      svg {
-        display: block;
-        width: 18px;
-        height: 18px;
-
-        path {
-          transition: all .3s;
+@media (max-width: 767.98px) {
+    .footer {
+        &__inner {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
         }
-      }
 
-      &:hover {
-        color: $primary;
-
-        path {
-          fill: $primary;
+        &__item:nth-child(2) {
+            order: 1;
         }
-      }
     }
-  }
+}
+
+@media (max-width: 575.98px) {
+    .footer {
+        &__inner {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+
+        &__item:nth-child(2) {
+            order: 0;
+        }
+    }
 }
